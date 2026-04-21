@@ -1,0 +1,46 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rigos-core",
+    "crates/rigos-state",
+    "crates/rigos-skills",
+    "crates/rigos-sandbox",
+    "crates/rigos-mcp",
+    "crates/rigos-server",
+    "crates/rigos-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/nelsonpdl/RigOs"
+authors = ["Nelson Padilla <nelsonpadil_@x.com>"]
+rust-version = "1.82"
+
+[workspace.dependencies]
+# Core ecosystem
+rig-core = "0.8"               # base agent framework maduro
+rmcp = "0.3"                   # MCP protocol bridge
+wasmtime = "25"                # Sandboxing
+axum = "0.7"                   # API & Daemon server
+tokio = { version = "1", features = ["full"] }
+
+# Observability (OTel and tracing layer)
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+opentelemetry = "0.27"
+
+# Persistence and time-travel storage
+sqlx = { version = "0.8", features = ["runtime-tokio", "sqlite", "postgres", "chrono", "json", "uuid"] }
+redb = "2"                     # Local KV embeddable
+
+# Standard utilities
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "2"
+clap = { version = "4", features = ["derive"] }
+uuid = { version = "1", features = ["v4", "v7", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+async-trait = "0.1"

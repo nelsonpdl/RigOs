@@ -1,0 +1,17 @@
+[package]
+name = "rigos-sandbox"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+rigos-core = { path = "../rigos-core" }
+wasmtime = { version = "18.0", features = ["async", "component-model"] }
+wasmtime-wasi = "18.0"
+tokio.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+
+[dev-dependencies]
+wat = "1"

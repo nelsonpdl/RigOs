@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package rigos.agent.v1;
+
+service RigOsAgent {
+  rpc DispatchMcp (DispatchMcpRequest) returns (DispatchMcpResponse);
+  rpc Health (HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+
+message HealthResponse {
+  string status = 1;
+}
+
+message DispatchMcpRequest {
+  string tenant_id = 1;
+  string trace_id = 2;
+  string tool_name = 3;
+  string payload_json = 4;
+}
+
+message DispatchMcpResponse {
+  string trace_id = 1;
+  bool success = 2;
+  string output_json = 3;
+  string error_msg = 4;
+}

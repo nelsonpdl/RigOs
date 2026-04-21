@@ -1,0 +1,36 @@
+[package]
+name = "rigos-server"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+rigos-core = { path = "../rigos-core" }
+rigos-state = { path = "../rigos-state" }
+rigos-skills = { path = "../rigos-skills" }
+rigos-sandbox = { path = "../rigos-sandbox" }
+rigos-mcp = { path = "../rigos-mcp" }
+
+axum = { version = "0.7", features = ["json"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors"] }
+tonic = { version = "0.12", features = ["tls"] }
+prost = "0.13"
+tokio = { workspace = true, features = ["full"] }
+tracing = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+opentelemetry = { version = "0.27", features = ["trace"] }
+opentelemetry_sdk = { version = "0.27" }
+opentelemetry-otlp = "0.27"
+anyhow = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+serde = { workspace = true, features = ["derive"] }
+serde_yaml = "0.9"
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+uuid = { workspace = true }
+
+[build-dependencies]
+tonic-build = "0.12"
+protoc-bin-vendored = "3.0.0"

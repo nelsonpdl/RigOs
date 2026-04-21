@@ -1,0 +1,18 @@
+[package]
+name = "rigos-state"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+rigos-core = { path = "../rigos-core" }
+tokio.workspace = true
+sqlx.workspace = true
+uuid.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+async-trait.workspace = true
